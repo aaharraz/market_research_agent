@@ -27,7 +27,7 @@ pip install -r requirements.txt
 
 Run the agent in interactive chat mode:
 ```bash
-python market_research_agent.py
+python agent.py
 ```
 
 ### Programmatic Usage
