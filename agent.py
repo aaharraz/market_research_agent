@@ -17,9 +17,13 @@ if os.path.exists(_env_path):
                 _k, _v = _line.strip().split("=", 1)
                 os.environ.setdefault(_k.strip(), _v.strip().strip('"').strip("'"))
 
+
 # API Configuration
 CLAUDE_API_KEY = os.getenv("CLAUDE_API_KEY")
 CLAUDE_BASE_URL = os.getenv("CLAUDE_BASE_URL")
+
+print(f"hrz CLAUDE_API_KEY: ${CLAUDE_API_KEY}")
+print(f"hrz CLAUDE_BASE_URL: ${CLAUDE_BASE_URL}")
 
 # System prompt for the agent
 SYSTEM_PROMPT = """You are a market research assistant helping analyze companies, industries, and competitors.
