@@ -35,9 +35,13 @@ Follow with a concise one-sentence explanation."""
 class MarketResearchAgent:
     """Claude-powered market research assistant."""
 
-    def __init__(self, api_key: str = CLAUDE_API_KEY):
+    def __init__(self):
         """Initialize the agent with API key."""
-        self.client = Anthropic(api_key=api_key, base_url=CLAUDE_BASE_URL)
+        api_key = os.getenv("CLAUDE_API_KEY")
+        base_url = os.getenv("CLAUDE_BASE_URL")
+        if not api_key:
+            raise ValueError("CLAUDE_API_KEY is not set")
+        self.client = Anthropic(api_key=api_key, base_url=base_url)
         self.model = "claude-sonnet-4-6"
         self.system_prompt = SYSTEM_PROMPT
         self.conversation_history = []
